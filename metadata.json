@@ -1,0 +1,8 @@
+{
+  "name": "Remix EcoTech",
+  "description": "Aplicativo gamificado de coleta de lixo eletrônico com mapa de descarte, estúdio de avatares colecionáveis, quiz, desafios em grupo, cupons de desconto e chat integrado.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

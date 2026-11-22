@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  html {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Accessibility options toggled by user settings */
+html.eco-font-large {
+  font-size: 17.5px;
+}
+
+html.eco-high-contrast {
+  filter: contrast(1.12);
+}
+
+html.eco-reduced-motion *,
+html.eco-reduced-motion *::before,
+html.eco-reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes eco-balloon-rise {
+  0% {
+    transform: translate3d(0, 110vh, 0) rotate(-3deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(var(--balloon-sway, 24px), 45vh, 0) rotate(3deg);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(calc(var(--balloon-sway, 24px) * -0.7), -28vh, 0) rotate(-2deg);
+    opacity: 0;
+  }
+}
+
+.eco-balloon-float {
+  animation: eco-balloon-rise var(--balloon-duration, 4.8s) ease-in-out var(--balloon-delay, 0s) forwards;
+}
+
